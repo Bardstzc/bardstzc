@@ -1,0 +1,392 @@
+{
+	"id": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+	"name": "storm",
+	"description": "这是storm的接口测试用例集合",
+	"order": [
+		"668ce0bc-67da-b5f2-e1d9-022b7ccd03e4",
+		"8d8d7652-369d-163d-6c6e-cffc6107b510",
+		"1e23ac65-16a5-af17-03ac-93c414a3bfde",
+		"8db32cf1-4765-866b-dc5f-90ed4a571fa4",
+		"eb0b98bb-8135-2e4c-abd9-01adaa549f55",
+		"16eda9b8-6f87-ef5d-3cef-e91c45d659bb",
+		"98eda9d2-1982-06fc-3055-3e2ec59ad738"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1513935114369,
+	"owner": "3159455",
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "16eda9b8-6f87-ef5d-3cef-e91c45d659bb",
+			"headers": "Cookie: token=token12345\n",
+			"headerData": [
+				{
+					"key": "Cookie",
+					"value": "token=token12345",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://{{domain}}/setmoney2",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "10a8005a-777f-432d-a910-bae5be89a1b1",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body({ code: 200, success: '成功' });",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "userid",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "money",
+					"value": "1000",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"auth": null,
+			"time": 1514186856492,
+			"name": "修改用户余额（2）-1",
+			"description": "",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Body is correct\", function () {\n    pm.response.to.have.body({ code: 200, success: '成功' });\n});",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "1e23ac65-16a5-af17-03ac-93c414a3bfde",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://{{domain}}/getuser2",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c3f7fcc-3df1-4f2f-ac11-d1186a6ce3a5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body({",
+							"    \"code\": 200,",
+							"    \"id\": 1,",
+							"    \"name\": \"小明\",",
+							"    \"age\": 18",
+							"});",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"auth": null,
+			"time": 1514186881598,
+			"name": "获取用户信息（2）-1",
+			"description": "Post请求",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Body is correct\", function () {\n    pm.response.to.have.body({\n    \"code\": 200,\n    \"id\": 1,\n    \"name\": \"小明\",\n    \"age\": 18\n});\n});",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "668ce0bc-67da-b5f2-e1d9-022b7ccd03e4",
+			"headers": "",
+			"headerData": [],
+			"url": "http://{{domain}}/getuser?userid=1",
+			"queryParams": [
+				{
+					"key": "userid",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cab442bf-2f65-42e6-9859-b5d7ff3607ff",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body({\"code\": 200, \"id\": \"1\", \"name\": \"\\u5c0f\\u660e\", \"age\": 18});",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"auth": null,
+			"time": 1514186905067,
+			"name": "获取用户信息-1",
+			"description": "请求方式get",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\n\n\npm.test(\"Body is correct\", function () {\n    pm.response.to.have.body({\"code\": 200, \"id\": \"1\", \"name\": \"\\u5c0f\\u660e\", \"age\": 18});\n});",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "8d8d7652-369d-163d-6c6e-cffc6107b510",
+			"headers": "",
+			"headerData": [],
+			"url": "http://{{domain}}/getuser",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c434daae-0651-4476-82d1-bd5b6f0da664",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body({\"code\": 200, \"id\": \"1\", \"name\": \"\\u5c0f\\u660e\", \"age\": 18});",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "userid",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"auth": null,
+			"time": 1514186895747,
+			"name": "获取用户信息-2",
+			"description": "请求方式post",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\n\n\npm.test(\"Body is correct\", function () {\n    pm.response.to.have.body({\"code\": 200, \"id\": \"1\", \"name\": \"\\u5c0f\\u660e\", \"age\": 18});\n});",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "8db32cf1-4765-866b-dc5f-90ed4a571fa4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://{{domain}}/getmoney",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e4d1092-37d2-4139-a04f-5446ee419639",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"money\");",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1514186873685,
+			"name": "获取用户余额-1",
+			"description": "",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Body matches string\", function () {\n    pm.expect(pm.response.text()).to.include(\"money\");\n});",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"userid\" : 1\n}"
+		},
+		{
+			"id": "98eda9d2-1982-06fc-3055-3e2ec59ad738",
+			"headers": "",
+			"headerData": [],
+			"url": "http://{{domain}}/uploadfile",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d7edc833-21c3-4b18-b856-6057ef09d07c",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body( { code: 200, success: '成功' });",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "file",
+					"value": "1234.txt",
+					"description": "上传文件接口，不适合postman自动化测试",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"auth": null,
+			"time": 1514186846574,
+			"name": "上传文件-1",
+			"description": "",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Body is correct\", function () {\n    pm.response.to.have.body( { code: 200, success: '成功' });\n});",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "eb0b98bb-8135-2e4c-abd9-01adaa549f55",
+			"headers": "",
+			"headerData": [],
+			"url": "http://{{domain}}/setmoney",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3f2d6783-6f2a-4317-b2d5-2b883241e0ba",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body({",
+							"    \"code\": 200,",
+							"    \"success\": \"成功\"",
+							"});",
+							"});"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "userid",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "money",
+					"value": "200",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"auth": {
+				"basic": [
+					{
+						"key": "password",
+						"value": "123456"
+					},
+					{
+						"key": "username",
+						"value": "admin"
+					}
+				],
+				"type": "basic"
+			},
+			"time": 1514186865134,
+			"name": "修改用户余额-1",
+			"description": "http 权限验证",
+			"collectionId": "6c1d28b7-61ed-5667-690c-22e02036ed23",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "pm.test(\"Body is correct\", function () {\n    pm.response.to.have.body({\n    \"code\": 200,\n    \"success\": \"成功\"\n});\n});",
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "admin",
+				"password": "123456"
+			}
+		}
+	]
+}
